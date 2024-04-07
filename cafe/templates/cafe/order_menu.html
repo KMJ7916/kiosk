@@ -1,0 +1,14 @@
+<form action="{% url 'kiosk:order_result'%}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend><h1>메뉴</h1></legend>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        {{item.name}}
+        {% for item in lion.item_set.all %}
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ item.id }}">
+            <label for="choice{{ forloop.counter }}">{{ item.name }}</label><br>
+        {% endfor %}
+    </fieldset>
+    <input type="submit" value="담기">
+    </form>
+<li><a href="{% url 'kiosk:order_result'%}">주문하기</a></li>

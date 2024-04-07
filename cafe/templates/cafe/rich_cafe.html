@@ -1,0 +1,11 @@
+<h2>메뉴</h2>
+{% for lion in lions %}
+    <h3>{{lion.name}}</h3>
+    {% for item in lion.item_set.all %}
+        {{item.name}} : {{item.price}}
+        <br>
+    {%endfor%}
+{%endfor%}
+<p>
+<li><a href="{% url 'kiosk:order_menu'%}">주문하기</a></li>
+</p>
