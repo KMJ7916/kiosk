@@ -9,27 +9,28 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #ffdb0d; /* 직접 지정한 배경색 */ mb-4">
         <div class="container-fluid">
-          <a class="navbar-brand" href="{%url 'index'%}">Lion Trip</a>
+          <a class="navbar-brand" href="{% url 'index' %}" style="color: #fff;">Lion Cafe</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{%url 'index'%}">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'index' %}" style="color: #fff;">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{%url 'kiosk:order_menu'%}">대표메뉴</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'kiosk:menu_list' %}" style="color: #fff;">대표메뉴</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">admin</a>
+                    <a class="nav-link active" aria-current="page" href="#" style="color: #fff;">admin</a>
                   </li>
                 </ul>
             </div>
         </div>
     </nav>
+
     
     <div class="container mb-5">
         {% block content %}{% endblock %}

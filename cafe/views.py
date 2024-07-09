@@ -3,6 +3,10 @@ from .models import Category, Item, Order
 
 # Create your views here.
 
+def menu_list(request):
+    menu_items = Item.objects.all()
+    return render(request,'cafe/menu_list.html',{'menu_list': menu_items})
+
 def rich_cafe(request):
     categorys=Category.objects.all()
     context= {

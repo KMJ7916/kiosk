@@ -17,9 +17,10 @@ class Item(models.Model):
 
 class Order(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
-    order_date=models.DateTimeField(auto_now=True)
-    item_count=models.IntegerField()
+    order_date = models.DateTimeField(auto_now=True)
+    item_count = models.IntegerField()
     order_price = models.IntegerField()
+
     def __str__(self):
-        return self.item_count
+        return f"Order {self.id} - {self.item.name} (x{self.item_count})"  # 문자열 반환
     
