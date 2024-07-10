@@ -1,10 +1,47 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Menu List</h1>
-    <ul>
-        {% for menu in menu_list %}
-            <li>{{ menu.name }} - {{ menu.price }}</li>
-        {% endfor %}
-    </ul>
+<style>
+    .card {
+        border: none; /* 카드 테두리 없애기 */
+        transition: transform 0.3s ease; /* 호버 시 변형 효과 */
+    }
+    .card:hover {
+        transform: translateY(-5px); /* 호버 시 카드 위로 이동 */
+    }
+    .card-img-top {
+        border-top-left-radius: 10px; /* 카드 이미지 상단 둥근 테두리 */
+        border-top-right-radius: 10px;
+        object-fit: cover; /* 이미지 비율 유지 및 자르기 */
+        height: 250px; /* 카드 이미지 높이 설정 */
+    }
+    .card-title {
+        font-size: 1.2rem; /* 카드 제목 폰트 크기 */
+        margin-top: 10px; /* 제목 위 여백 추가 */
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>메뉴</h3>
+            <div class="row">
+                {% for menu in menu_list %}
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="{% url 'cafe:menu_detail' pk=menu.id %}">
+                            <img src="{{ menu.image.url }}" class="card-img-top food-image" alt="{{ menu.name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ menu.name }}</h5>
+                                <p class="card-text text-muted">{{ menu.price }}원</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
+

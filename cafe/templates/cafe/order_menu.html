@@ -2,7 +2,7 @@
 
 <!-- block content가 있어야함 -->
 {% block content %} 
-    <form action="{% url 'kiosk:order_result' %}" method="post">
+    <form action="{% url 'cafe:order_result' %}" method="post">
         {% csrf_token %}
         <fieldset>
             <legend><h1>메뉴</h1></legend>
@@ -17,5 +17,5 @@
         <input type="submit" value="담기">
     </form>
 
-    <li><a href="{% url 'kiosk:order_result' %}">주문하기</a></li>
+    <li><a href="{% url 'cafe:order_result' %}">주문하기</a></li>
 {% endblock %}
